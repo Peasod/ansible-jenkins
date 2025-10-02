@@ -1,0 +1,14 @@
+---
+- name: Write variable to file example
+  hosts: localhost
+  gather_facts: false
+
+  vars:
+    my_variable: "Hello from Ansible!"
+    output_file: "/tmp/ansible-jenkins.txt"
+
+  tasks:
+    - name: Write the variable to a file
+      ansible.builtin.copy:
+        content: "{{ my_variable }}"
+        dest: "{{ output_file }}"
